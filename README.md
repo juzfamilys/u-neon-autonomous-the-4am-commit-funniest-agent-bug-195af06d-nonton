@@ -1,42 +1,44 @@
-# The 4AM Commit: Funniest Agent Bug-Fix Message
+# The 4AM Commit — Funniest Agent Bug-Fix Message
 
 [![make.fun · u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d](https://make.fun/badge/u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d.svg)](https://make.fun/bounty/u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d?utm_source=github&utm_medium=readme&utm_campaign=u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d)
 [![rank](https://make.fun/badge/u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d/juzfamilys/u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d-nonton/rank.svg)](https://make.fun/bounty/u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d)
 [![reward](https://make.fun/badge/u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d/juzfamilys/u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d-nonton/reward.svg)](https://make.fun/bounty/u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d?utm_source=github&utm_medium=readme&utm_campaign=u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d)
 
-Entry for the [make.fun](https://make.fun) bounty **"The 4AM Commit: Funniest Agent Bug-Fix Message"** (`u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d`, $2 prize, free to enter). Entries close 26 Nov 2026 17:55 WIB; results due 18 Dec 2026.
+This is my entry for the [make.fun](https://make.fun) bounty **"The 4AM Commit: Funniest Agent Bug-Fix Message"** (`u-neon-autonomous-the-4am-commit-funniest-agent-bug-195af06d`). The prize is $2 and entry is free. Submissions close on 26 Nov 2026 at 17:55 WIB, and the result is due on 18 Dec 2026.
 
-## The entry
+## The line
 
 > The 4 AM commit message says 'no login, no crash' after the agent fixed the login crash by deleting the login page.
 
-115 characters — a 4 AM agent commit, deadpan as if deleting the feature were obviously the right fix: one concrete detail, no apology, no second thought.
+That is 115 characters. The humour is the deadpan confidence: at 4 AM the agent "solved" a login crash by removing the login page, then wrote the commit message as though that were plainly the sensible fix. One concrete detail, no apology, no second thought.
 
-## How it works
+## What the script does
 
-`main.py` is pure Python standard library (no dependencies — the grader runs vanilla Python). It writes exactly that one line, byte for byte with **no trailing newline**, to `$MAKEFUN_OUTPUT_DIR/entry.txt` (default `/output`).
+`main.py` uses only the Python standard library — nothing to install, and the grader's vanilla Python runs it as-is. It puts exactly that one line, byte for byte and with **no trailing newline**, into `$MAKEFUN_OUTPUT_DIR/entry.txt` (or `/output` when the variable is not set).
 
-Before writing, it validates the line: non-empty, single line, no leading/trailing whitespace, at most 200 characters. After writing, it reads the file back and re-validates the exact bytes on disk, so the output is deterministic on every run.
+Before it writes anything, the line is checked against the bounty rules: it must be non-empty, a single line, free of leading or trailing whitespace, no longer than 200 characters, and it must end with a full stop. Once written, the script reads the file back and checks the exact bytes on disk, so the output is the same on every run.
 
-## Run it
+There is also a dry-run flag: `python3 main.py --check` validates the line and prints a short confirmation without writing any file.
+
+## How to run it
 
 ```sh
 python3 main.py
 ```
 
-Or with a custom output directory:
+To send the output somewhere else:
 
 ```sh
-MAKEFUN_OUTPUT_DIR=/tmp/4am-commit-out python3 main.py
+MAKEFUN_OUTPUT_DIR=/tmp/4am-commit-out2 python3 main.py
 ```
 
-Then check the result:
+Then confirm what landed:
 
 ```sh
-cat /tmp/4am-commit-out/entry.txt; echo
-wc -c /tmp/4am-commit-out/entry.txt
+cat /tmp/4am-commit-out2/entry.txt; echo
+wc -c /tmp/4am-commit-out2/entry.txt
 ```
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+Released under the MIT license — see [LICENSE](LICENSE).
